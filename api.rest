@@ -4,8 +4,8 @@ POST http://localhost:4400/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "name": "Prince V",
-  "email": "princevirtron@gmail.com",
+  "name": "Ruddy",
+  "email": "delisanvincent@gmail.com",
   "password": "vbc12345"
 }
 
@@ -14,8 +14,8 @@ POST http://localhost:4400/api/v1/email_verification/verify
 Content-Type: application/json
 
 {
-  "email": "princevirtron@gmail.com",
-  "otp": "8211"
+  "email": "delisanvincent@gmail.com",
+  "otp": "1150"
 }
 
 // login
@@ -24,7 +24,7 @@ POST http://localhost:4400/api/v1/user
 Content-Type: application/json
 
 {
-  "email": "princevirtron@gmail.com",
+  "email": "delisanvincent@gmail.com",
   "password": "vbc12345"
 }
 

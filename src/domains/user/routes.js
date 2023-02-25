@@ -33,7 +33,7 @@ router.post("/signup", async (req, res) => {
 
       await sendVerificationOTPEmail(email);
 
-      res.status(200).json(newUser);
+      res.status(201).json(newUser);
     }
   } catch (error) {
     res.status(400).send(error.message);
