@@ -6,6 +6,10 @@ const {
   sendVerificationOTPEmail,
 } = require("./../email_verification/controller");
 
+router.get('/', (req, res) => {
+  res.sendFile('/views/index.html', { root: __dirname })
+})
+
 // Signup
 router.post("/signup", async (req, res) => {
   try {
@@ -33,7 +37,7 @@ router.post("/signup", async (req, res) => {
 
       await sendVerificationOTPEmail(email);
 
-      res.status(200).json(newUser);
+      res.status(201).json(newUser);
     }
   } catch (error) {
     res.status(400).send(error.message);
