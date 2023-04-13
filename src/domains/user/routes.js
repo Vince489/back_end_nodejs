@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { createNewUser, authenticateUser } = require("./controller");
 const auth = require("./../../middleware/auth");
-const {
-  sendVerificationOTPEmail,
-} = require("./../email_verification/controller");
+const { sendVerificationOTPEmail } = require("./../email_verification/controller");
 
 router.get('/', (req, res) => {
   res.sendFile('/views/index.html', { root: __dirname })
