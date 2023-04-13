@@ -3,6 +3,7 @@ const { hashData } = require("./../../util/hashData");
 const createToken = require("./../../util/createToken");
 const { verifyHashedData } = require("./../../util/hashData");
 
+
 const createNewUser = async (data) => {
   try {
     const { name, email, password } = data;
