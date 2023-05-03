@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "email": "vincentcornelius489@gmail.com",
-  "otp": "2935"
+  "otp": "7885"
 }
 
 // login
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2Y0MmYwZTdlNDcwNjBjNGY2ZGY3OGUiLCJlbWFpbCI6InZpbmNlbnRjb3JuZWxpdXM0ODlAZ21haWwuY29tIiwiaWF0IjoxNjc2OTQ3NDQwLCJleHAiOjE3MDI4Njc0NDB9.JuGLTB37Rz-COymSYw5uRGj2wc5DcyXWz2JXIqTeIBM
+GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUxYTliNzk3MGJlODZhMDAzOWFmYjIiLCJlbWFpbCI6InZpbmNlbnRjb3JuZWxpdXM0ODlAZ21haWwuY29tIiwiaWF0IjoxNjgzMDc0MjM2LCJleHAiOjE3MDg5OTQyMzZ9.1dX_2J5ZGLHmj3ldD7nhySiHmwhz1N3MfOxO2rFC5wo
 Content-Type: application/json
 
 
