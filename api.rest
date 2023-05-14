@@ -35,8 +35,30 @@ Content-Type: application/json
 
 // password protected
 ###
-GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDYxMWJjMDlmN2Q2YzcwZTVlOGNjZTIiLCJlbWFpbCI6InZpbmNlbnRjb3JuZWxpdXM0ODlAZ21haWwuY29tIiwiaWF0IjoxNjg0MDg1NzI5LCJleHAiOjE3MTAwMDU3Mjl9.8MXVXxlNTGdCCq9CRnW2SKL7gJJRP2CpUgmaSoscHbo
+GET http://localhost:4400/api/v1/user/private_data?token=
 Content-Type: application/json
+
+
+// forgot password
+###
+POST http://localhost:4400/api/v1/forgot_password/
+Content-Type: application/json
+
+{
+  "email": "vincentcornelius489@gmail.com"
+}
+
+// password reset
+###
+POST http://localhost:4400/api/v1/forgot_password/reset
+Content-Type: application/json
+
+{
+  "email": "vincentcornelius489@gmail.com",
+  "otp": "1106",
+  "newPassword": "12345678"
+}
+
 
 
 
