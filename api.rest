@@ -8,9 +8,9 @@ POST http://localhost:4400/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "name": "Prince V",
-  "email": "princevirtron@gmail.com",
-  "password": "vbc12345"
+  "name": "Vince",
+  "email": "vincentcornelius489@gmail.com",
+  "password": "12345678"
 }
 
 // verify email
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "email": "princevirtron@gmail.com",
-  "otp": "6104"
+  "otp": "1844"
 }
 
 // login
@@ -29,13 +29,36 @@ POST http://localhost:4400/api/v1/user
 Content-Type: application/json
 
 {
-  "email": "princevirtron@gmail.com",
-  "password": "vbc12345"
+  "email": "vincentcornelius489@gmail.com",
+  "password": "12345678"
 }
 
+// password protected
 ###
-GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEwNDI4YmZiZGI1ZGQ1MjAxNWJkYzkiLCJlbWFpbCI6InByaW5jZXZpcnRyb25AZ21haWwuY29tIiwiaWF0IjoxNjg4MjI0NDQ3LCJleHAiOjE2OTA4MTY0NDd9.E3fMNCRzKG4snOhpzhujxGkjAYRuNYf8ZbS8wck1rGk
+GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM3NTBmNGQ5ZDkzNWI5MmNmOWQ4ZjMiLCJlbWFpbCI6InByaW5jZXZpcnRyb25AZ21haWwuY29tIiwiaWF0IjoxNjgxMzQ2OTk3LCJleHAiOjE2ODM5Mzg5OTd9.V-pdqimmMN9zxaDXpaL-ZDrNBvIG1vLPsjTYxCk8QEM
 Content-Type: application/json
+
+
+// forgot password
+###
+POST http://localhost:4400/api/v1/forgot_password/
+Content-Type: application/json
+
+{
+  "email": "vincentcornelius489@gmail.com"
+}
+
+// password reset
+###
+POST http://localhost:4400/api/v1/forgot_password/reset
+Content-Type: application/json
+
+{
+  "email": "vincentcornelius489@gmail.com",
+  "otp": "1106",
+  "newPassword": "12345678"
+}
+
 
 
 

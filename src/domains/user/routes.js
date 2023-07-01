@@ -4,9 +4,6 @@ const { createNewUser, authenticateUser } = require("./controller");
 const auth = require("./../../middleware/auth");
 const { sendVerificationOTPEmail } = require("./../email_verification/controller");
 
-router.get('/', (req, res) => {
-  res.sendFile('/views/index.html', { root: __dirname })
-})
 
 // Signup
 router.post("/signup", async (req, res) => {
