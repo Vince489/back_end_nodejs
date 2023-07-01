@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "email": "princevirtron@gmail.com",
-  "otp": "1844"
+  "otp": "6104"
 }
 
 // login
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM3NTBmNGQ5ZDkzNWI5MmNmOWQ4ZjMiLCJlbWFpbCI6InByaW5jZXZpcnRyb25AZ21haWwuY29tIiwiaWF0IjoxNjgxMzQ2OTk3LCJleHAiOjE2ODM5Mzg5OTd9.V-pdqimmMN9zxaDXpaL-ZDrNBvIG1vLPsjTYxCk8QEM
+GET http://localhost:4400/api/v1/user/private_data?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEwNDI4YmZiZGI1ZGQ1MjAxNWJkYzkiLCJlbWFpbCI6InByaW5jZXZpcnRyb25AZ21haWwuY29tIiwiaWF0IjoxNjg4MjI0NDQ3LCJleHAiOjE2OTA4MTY0NDd9.E3fMNCRzKG4snOhpzhujxGkjAYRuNYf8ZbS8wck1rGk
 Content-Type: application/json
 
 
