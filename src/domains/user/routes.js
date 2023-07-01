@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { createNewUser, authenticateUser } = require("./controller");
 const auth = require("./../../middleware/auth");
-const {
-  sendVerificationOTPEmail,
-} = require("./../email_verification/controller");
+const { sendVerificationOTPEmail } = require("./../email_verification/controller");
+
 
 // Signup
 router.post("/signup", async (req, res) => {
@@ -33,7 +32,7 @@ router.post("/signup", async (req, res) => {
 
       await sendVerificationOTPEmail(email);
 
-      res.status(200).json(newUser);
+      res.status(201).json(newUser);
     }
   } catch (error) {
     res.status(400).send(error.message);
