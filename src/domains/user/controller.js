@@ -6,7 +6,7 @@ const { verifyHashedData } = require("./../../util/hashData");
 
 const createNewUser = async (data) => {
   try {
-    const { name, email, password } = data;
+    const { gamerTag, email, password } = data;
 
     // Checking if user already exists
     const existingUser = await User.findOne({ email });
@@ -18,7 +18,7 @@ const createNewUser = async (data) => {
     // hash password
     const hashedPassword = await hashData(password);
     const newUser = new User({
-      name,
+      gamerTag,
       email,
       password: hashedPassword,
     });

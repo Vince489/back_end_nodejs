@@ -1,8 +1,7 @@
-
+// get all users
 GET http://localhost:4400/api/v1/user/
 
 ###
-
 // signup
 POST http://localhost:4400/api/v1/user/signup
 Content-Type: application/json
@@ -13,18 +12,18 @@ Content-Type: application/json
   "password": "12345678"
 }
 
-// verify email
 ###
+// verify email
 POST http://localhost:4400/api/v1/email_verification/verify
 Content-Type: application/json
 
 {
-  "email": "princevirtron@gmail.com",
-  "otp": "1844"
+  "email": "vincentcornelius489@gmail.com",
+  "otp": "2290"
 }
 
-// login
 ###
+// login
 POST http://localhost:4400/api/v1/user
 Content-Type: application/json
 

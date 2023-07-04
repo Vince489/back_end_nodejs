@@ -3,20 +3,31 @@ const router = express.Router();
 const { createNewUser, authenticateUser } = require("./controller");
 const auth = require("./../../middleware/auth");
 const { sendVerificationOTPEmail } = require("./../email_verification/controller");
+const User = require("./model");
 
+
+// Get all users
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
 
 // Signup
 router.post("/signup", async (req, res) => {
   try {
-    let { name, email, password } = req.body;
-    name = name.trim();
+    let { gamerTag, email, password } = req.body;
+    gamerTag = gamerTag.trim();
     email = email.trim();
     password = password.trim();
 
-    if (!(name && email && password)) {
+    if (!(gamerTag && email && password)) {
       throw Error("Empty input fields!");
-    } else if (!/^[a-zA-Z ]*$/.test(name)) {
-      throw Error("Invalid name entered");
+    } else if (!/^[a-zA-Z ]*$/.test(gamerTag)) {
+      throw Error("Invalid gamerTag entered");
     } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       throw Error("Invalid email entered");
     } else if (password.length < 8) {
@@ -25,7 +36,7 @@ router.post("/signup", async (req, res) => {
       // good credentials, create new user
 
       const newUser = await createNewUser({
-        name,
+        gamerTag,
         email,
         password,
       });
