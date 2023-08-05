@@ -30,7 +30,7 @@ const createNewUser = async (data) => {
   }
 };
 
-const authenticateUser = async (data) => {
+const authenticateUser = async (data, res) => {
   try {
     const { email, password } = data;
 
@@ -57,6 +57,10 @@ const authenticateUser = async (data) => {
 
     // assign user token
     fetchedUser.token = token;
+
+    // set token in cookies
+    res.cookie("token", token, { httpOnly: true });
+
     return fetchedUser;
   } catch (error) {
     throw error;
