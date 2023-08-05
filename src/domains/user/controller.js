@@ -58,9 +58,6 @@ const authenticateUser = async (data, res) => {
     // assign user token
     fetchedUser.token = token;
 
-    // set token in cookies
-    res.cookie("token", token, { httpOnly: true });
-
     return fetchedUser;
   } catch (error) {
     throw error;
