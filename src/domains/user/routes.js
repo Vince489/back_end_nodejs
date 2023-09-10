@@ -2,26 +2,32 @@ const express = require("express");
 const router = express.Router();
 const { createNewUser, authenticateUser } = require("./controller");
 const auth = require("./../../middleware/auth");
-const {
-  sendVerificationOTPEmail,
-} = require("./../email_verification/controller");
+const { sendVerificationOTPEmail } = require("./../email_verification/controller");
+const User = require("./model");
 
-router.get('/', (req, res) => {
-  res.sendFile('/views/index.html', { root: __dirname })
-})
+
+// Get all users
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
 
 // Signup
 router.post("/signup", async (req, res) => {
   try {
-    let { name, email, password } = req.body;
-    name = name.trim();
+    let { gamerTag, email, password } = req.body;
+    gamerTag = gamerTag.trim();
     email = email.trim();
     password = password.trim();
 
-    if (!(name && email && password)) {
+    if (!(gamerTag && email && password)) {
       throw Error("Empty input fields!");
-    } else if (!/^[a-zA-Z ]*$/.test(name)) {
-      throw Error("Invalid name entered");
+    } else if (!/^[a-zA-Z ]*$/.test(gamerTag)) {
+      throw Error("Invalid gamerTag entered");
     } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       throw Error("Invalid email entered");
     } else if (password.length < 8) {
@@ -30,7 +36,7 @@ router.post("/signup", async (req, res) => {
       // good credentials, create new user
 
       const newUser = await createNewUser({
-        name,
+        gamerTag,
         email,
         password,
       });
@@ -47,11 +53,13 @@ router.post("/signup", async (req, res) => {
 // Signin
 router.post("/", async (req, res) => {
   try {
-    let { email, password } = req.body;
-    email = email.trim();
-    password = password.trim();
+    const { email, password } = req.body;
 
-    if (!(email && password)) {
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+
+    // Check if gamer tag and password are empty
+    if (!trimmedEmail || !trimmedPassword) {
       throw Error("Empty credentials supplied!");
     }
 
@@ -61,7 +69,29 @@ router.post("/", async (req, res) => {
   } catch (error) {
     res.status(400).send(error.message);
   }
+
 });
+
+
+
+// Logout
+router.post('/logout', (req, res) => {
+  try {
+    // Clear the JWT token cookie
+    res.clearCookie('jwt', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production' // Set secure flag based on environment
+    });
+
+    res.status(200).json({ message: 'Logged out successfully.' });
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred during logout.' });
+  }
+});
+
+
+    
+
 
 // protected route
 router.get("/private_data", auth, (req, res) => {

@@ -9,7 +9,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-// test transporter
+// test transporter 
 transporter.verify((error, success) => {
   if (error) {
     console.log(error);
